@@ -26,7 +26,7 @@ return require('packer').startup(function(use)
         use("nvim-treesitter/nvim-treesitter-context");
         use {
             'VonHeikemen/lsp-zero.nvim',
-            branch = 'v1.x',
+            branch = 'v2.x',
             requires = {
                 -- LSP Support
                 {'neovim/nvim-lspconfig'},
@@ -60,4 +60,8 @@ return require('packer').startup(function(use)
             'NLKNguyen/papercolor-theme'
         }
         use { "ellisonleao/gruvbox.nvim" }
+        use {
+            "windwp/nvim-autopairs",
+            config = function() require("nvim-autopairs").setup {} end
+        }
     end)

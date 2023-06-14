@@ -1,6 +1,7 @@
-local lsp = require("lsp-zero")
+require('mason').setup()
+require('mason-lspconfig').setup()
 
-lsp.preset("recommended")
+local lsp = require("lsp-zero").preset({})
 
 lsp.ensure_installed({
   'tsserver',
