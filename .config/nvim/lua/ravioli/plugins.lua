@@ -5,6 +5,7 @@ vim.cmd.packadd('packer.nvim')
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
+    use('simrat39/inlay-hints.nvim')
     use 'p00f/clangd_extensions.nvim'
     use 'Mofiqul/dracula.nvim'
     use {

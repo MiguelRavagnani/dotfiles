@@ -135,6 +135,11 @@ _G.packer_plugins = {
     path = "/home/miguel/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
   },
+  ["inlay-hints.nvim"] = {
+    loaded = true,
+    path = "/home/miguel/.local/share/nvim/site/pack/packer/start/inlay-hints.nvim",
+    url = "https://github.com/simrat39/inlay-hints.nvim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/home/miguel/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
