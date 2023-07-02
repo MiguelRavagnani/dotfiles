@@ -1,10 +1,13 @@
-require('mason').setup()
+require("mason").setup({
+    PATH = "prepend",
+})
 require('mason-lspconfig').setup()
 
 local ih = require('inlay-hints')
 ih.setup()
 
 local lsp = require("lsp-zero").preset({})
+lsp.extend_cmp()
 
 lsp.ensure_installed({
     'tsserver',
@@ -73,6 +76,7 @@ lsp.skip_server_setup({'clangd'})
 lsp.setup()
 
 require('clangd_extensions').setup({
+    lsp.nvim_lua_ls(),
     extensions = {
         autoSetHints = true,
         inlay_hints = {

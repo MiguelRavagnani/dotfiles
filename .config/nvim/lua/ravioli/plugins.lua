@@ -60,7 +60,7 @@ return require('packer').startup(function(use)
         use {
             'NLKNguyen/papercolor-theme'
         }
-        use { "ellisonleao/gruvbox.nvim" }
+        use { "catppuccin/nvim", as = "catppuccin" }
         use {
             "windwp/nvim-autopairs",
             config = function() require("nvim-autopairs").setup {} end
