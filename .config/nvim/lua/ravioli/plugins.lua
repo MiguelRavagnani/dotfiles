@@ -5,7 +5,8 @@ vim.cmd.packadd('packer.nvim')
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
-    use('simrat39/inlay-hints.nvim')
+    use 'simrat39/inlay-hints.nvim'
+    use 'christoomey/vim-tmux-navigator'
     use 'p00f/clangd_extensions.nvim'
     use 'Mofiqul/dracula.nvim'
     use {
@@ -61,6 +62,7 @@ return require('packer').startup(function(use)
             'NLKNguyen/papercolor-theme'
         }
         use { "catppuccin/nvim", as = "catppuccin" }
+        use({ 'rose-pine/neovim', as = 'rose-pine' })
         use {
             "windwp/nvim-autopairs",
             config = function() require("nvim-autopairs").setup {} end
