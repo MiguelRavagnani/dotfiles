@@ -134,3 +134,9 @@ function virtualenv_info {
 
 alias "vim"="nvim"
 alias "vi"="nvim"
+
+setopt ignore_eof
+
+function run-tmux-sessionizer { tmux neww ~/.local/bin/scripts/tmux-sessionizer }
+zle -N run-tmux-sessionizer
+bindkey '^f' run-tmux-sessionizer
