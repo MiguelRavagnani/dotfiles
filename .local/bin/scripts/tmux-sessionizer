@@ -4,7 +4,7 @@ if [[ $# -eq 1 ]]; then
     selected=$1
 else
     directories=$(cat ~/.local/tmux-fzf)
-    directories="${directories//\~/$HOME}"
+    directories="${directories}"
     selected=$(find $directories -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
