@@ -46,7 +46,15 @@ unzip -o JetBrainsMono.zip -d ~/.fonts
 fc-cache -fv
 rm JetBrainsMono.zip
 if [[ -f "$ROOT_PATH"/JetBrainsMono.zip ]]; then
-	echo "Jet Brains Mono installed installed" >>$log_file
+	echo "Jet Brains Mono installed installed" >>$:qlog_file
 else
 	echo "ERROR: Jet Brains mono failed to install" >>$log_file
+fi
+
+echo "Tmux" >>$log_file
+sudo apt-get -y install tmux
+if [[ -f "$ROOT_PATH"/JetBrainsMono.zip ]]; then
+	echo "Tmux installed installed" >>$:qlog_file
+else
+	echo "ERROR: Tmux failed to install" >>$log_file
 fi
