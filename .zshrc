@@ -10,6 +10,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="spaceship"
 
+LS_COLORS="ow=01;36;40" && export LS_COLORS
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -140,3 +142,4 @@ setopt ignore_eof
 function run-tmux-sessionizer { tmux neww ~/.local/bin/scripts/tmux-sessionizer }
 zle -N run-tmux-sessionizer
 bindkey '^f' run-tmux-sessionizer
+export COLORTERM=truecolor

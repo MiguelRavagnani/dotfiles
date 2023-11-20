@@ -21,6 +21,13 @@ else
 	echo "ERROR: zsh failed to install" >>$log_file
 fi
 
+echo "Oh My Zsh" >>$log_file
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt" --depth=1
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+echo "Oh My Zsh installed" >>$log_file
+
 echo "Neovim" >>$log_file
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
@@ -42,19 +49,34 @@ fi
 
 echo "Jet Brains Mono" >>$log_file
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip
-unzip -o JetBrainsMono.zip -d ~/.fonts
+unzip -o JetBrainsMono.zip -d ~/.local/share/fonts
 fc-cache -fv
-rm JetBrainsMono.zip
 if [[ -f "$ROOT_PATH"/JetBrainsMono.zip ]]; then
 	echo "Jet Brains Mono installed installed" >>$:qlog_file
 else
 	echo "ERROR: Jet Brains mono failed to install" >>$log_file
 fi
+rm JetBrainsMono.zip
 
 echo "Tmux" >>$log_file
 sudo apt-get -y install tmux
-if [[ -f "$ROOT_PATH"/JetBrainsMono.zip ]]; then
-	echo "Tmux installed installed" >>$:qlog_file
+if type -p tmux >/dev/null; then
+	echo "Tmux installed" >>$:qlog_file
 else
 	echo "ERROR: Tmux failed to install" >>$log_file
 fi
+
+echo "TPM" >>$log_file
+if [[ ! -d "$HOME"/.tmux/plugins/tpm ]]; then
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+if [[ -f "$HOME"/.tmux/plugins/tpm/tpm ]]; then
+	echo "TPM installed" >>$:qlog_file
+else
+	echo "ERROR: TPM failed to install" >>$log_file
+fi
+
+# using dircolors.ansi-dark
+curl https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-dark --output ~/.dircolors
+## set colors for LS_COLORS
+eval 'dircolors ~/.dircolors'
