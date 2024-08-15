@@ -3,4 +3,4 @@ It seems I can't settle on a Linux distro, so saving my dotfiles looks like a ne
 
 ## Featured:
 
- - New blank slate
+ - Simple neovim install script
